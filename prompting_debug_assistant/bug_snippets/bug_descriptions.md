@@ -28,7 +28,7 @@
 
 
 
-## Bug 5 – bug6.js
+## Bug 5 – bug5.c
 **Intended Behavior**: Filter even numbers, fetch and handle API data, calculate date differences, validate phone numbers, and sort prices numerically.  
 **Issue Type**: Misuse of built-in methods and libraries.  
 **Notes**: `Array.map` is used instead of `Array.filter`, leaving `undefined` entries for odd numbers; `.catch` is placed before `.then`, so errors thrown in `.then` go uncaught; date subtraction yields milliseconds instead of days (missing division by `86400000`); `regex.test()` is called on a `number` instead of a `string`; `Array.sort()` is called without a comparator, causing lexicographic ordering (e.g., `[10, 100, 25, 3, 9]` instead of `[3, 9, 10, 25, 100]`).
