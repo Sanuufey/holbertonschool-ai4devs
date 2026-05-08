@@ -1,18 +1,34 @@
 function getUserAge(user) {
-    return user.profile.age;  
+    if (!user || !user.profile) {
+        return null;
+    }
+    return user.profile.age;
 }
 
 function printUpperCase(str) {
-    console.log(str.toUpperCase());  
+    if (str === null || str === undefined) {
+        console.log("Invalid input");
+        return;
+    }
+    console.log(str.toUpperCase());
 }
 
 function divide(a, b) {
-    return a / b;  
+    if (b === 0) {
+        console.log("Error: Division by zero");
+        return null;
+    }
+    return a / b;
 }
 
 function parseConfig(jsonString) {
-    const config = JSON.parse(jsonString);  
-    return config.timeout;
+    try {
+        const config = JSON.parse(jsonString);
+        return config.timeout;
+    } catch (e) {
+        console.log("Error: Invalid JSON -", e.message);
+        return null;
+    }
 }
 
 getUserAge(undefined);
