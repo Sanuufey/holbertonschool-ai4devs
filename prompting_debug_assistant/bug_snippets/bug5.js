@@ -1,8 +1,3 @@
-// bug6.js — Misuse of Libraries & Built-ins
-// Bug: misusing Array methods, broken Promise chain,
-//      Date arithmetic error, regex on non-string
-
-// --- Bug 1: Array.map used to filter — wrong tool ---
 const numbers = [1, 2, 3, 4, 5, 6];
 const evens = numbers.map(n => {
     if (n % 2 === 0) return n;

@@ -1,7 +1,3 @@
-# bug4.py — Off-by-One & Loop Logic Issues
-# Bug: range goes one too far, loop skips last element,
-#      infinite loop due to missing increment, fence-post error
-
 def print_first_n(lst, n):
     # Bug: range(n+1) goes out of bounds when n == len(lst)
     for i in range(n + 1):

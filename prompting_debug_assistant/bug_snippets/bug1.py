@@ -1,6 +1,3 @@
-# bug1.py — Syntax Errors
-# Bug: missing colon after if/else, unclosed parenthesis, wrong indentation
-
 def calculate_discount(price, member):
     if price > 100
         discount = 0.2

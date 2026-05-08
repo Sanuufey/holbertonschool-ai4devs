@@ -1,7 +1,3 @@
-// bug3.js — Runtime Exceptions
-// Bug: accessing property on undefined, calling method on null,
-//      dividing by zero without guard, JSON parse without try/catch
-
 function getUserAge(user) {
     // Bug: user might be undefined — crashes with TypeError
     return user.profile.age;

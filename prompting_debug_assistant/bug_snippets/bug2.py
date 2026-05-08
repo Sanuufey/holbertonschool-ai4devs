@@ -1,7 +1,3 @@
-# bug2.py — Logical Errors
-# Bug: wrong formula for average, condition uses = instead of ==,
-#      factorial returns wrong result due to bad base case
-
 def get_average(numbers):
     total = 0
     for n in numbers:
