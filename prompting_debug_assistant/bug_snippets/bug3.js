@@ -1,17 +1,17 @@
 function getUserAge(user) {
-    return user.profile.age;  // Bug: crashes if user is undefined
+    return user.profile.age;  
 }
 
 function printUpperCase(str) {
-    console.log(str.toUpperCase());  // Bug: crashes if str is null
+    console.log(str.toUpperCase());  
 }
 
 function divide(a, b) {
-    return a / b;  // Bug: returns Infinity when b is 0
+    return a / b;  
 }
 
 function parseConfig(jsonString) {
-    const config = JSON.parse(jsonString);  // Bug: no try/catch
+    const config = JSON.parse(jsonString);  
     return config.timeout;
 }
 
