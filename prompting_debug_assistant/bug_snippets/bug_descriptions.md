@@ -1,104 +1,81 @@
-
 ## Bug 1 – bug1.py
 
-**Intended Behavior:**  
-Calculate a final price after applying a discount depending on whether the user is a member.
+**Intended Behavior**:  
+Compute a final price by applying a discount based on whether the user is a member and the price value.
 
-**Issue Type:** Syntax Errors
-
-**Issues:**
-- Missing colon in `if price > 100:`
-- Missing `:` in `else:`
-- Incorrect arithmetic syntax: `price (1 - discount)` should be `price * (1 - discount)`
-- Missing closing parentheses in `print()`
-- Assignment vs comparison error: `if member = True` should be `if member == True`
-
-
-## Bug 2 – Functions (Logic Errors)
-
-**Intended Behavior:**
-- `get_average(numbers)`: return correct average of list
-- `is_even(n)`: return True if number is even
-- `factorial(n)`: compute factorial recursively
-
-**Issue Type:** Logical Errors
+**Issue Type**: Syntax Errors
 
 **Issues:**
-- ❌ `return total / 100` → hardcoded divisor  
-  ✔ should be `return total / len(numbers)`
+- Missing `:` after `if price > 100`
+- Missing `:` after `else`
+- Incorrect arithmetic expression: `price (1 - discount)` instead of `price * (1 - discount)`
+- Missing closing parenthesis in `print()`
+- Wrong assignment used in condition: `if member = True` instead of `if member == True`
 
-- ❌ `if n % 2 == 1`  
-  ✔ should be `if n % 2 == 0`
+---
 
-- ❌ `if n == 2: return 1`  
-  ✔ correct base case: `if n in (0, 1): return 1`
+## Bug 2 – functions.py
 
-- ❌ `return n factorial(n - 1)`  
-  ✔ should be `return n * factorial(n - 1)`
+**Intended Behavior**:  
+- `get_average(numbers)`: return the correct average of a list  
+- `is_even(n)`: return True if `n` is even, otherwise False  
+- `factorial(n)`: compute factorial using recursion  
 
-
-## Bug 3 – Runtime Exceptions
-
-**Intended Behavior:**
-- Safely access user age
-- Convert string to uppercase
-- Divide numbers safely
-- Parse JSON config safely
-
-**Issue Type:** Runtime Errors
+**Issue Type**: Logical Errors
 
 **Issues:**
-- ❌ Null/undefined check missing for `user.profile.age`
-- ❌ `str.toUpperCase()` may crash on null/undefined
-- ❌ Division by zero not handled in `a / b`
-- ❌ Missing error handling in JSON parsing
-- ❌ Missing closing braces in functions
+- Hardcoded divisor `100` used in average calculation instead of `len(numbers)`
+- Incorrect even check using `n % 2 == 1` (checks odd instead of even)
+- Wrong factorial base case (`n == 2`) instead of `n in (0, 1)`
+- Missing multiplication operator in recursion: `n factorial(n - 1)`
 
+---
 
-## Bug 4 – bug4.py (Loop / Off-by-one Errors)
+## Bug 3 – runtime_errors.py
 
-**Intended Behavior:**
-- print numbers correctly
-- sum pairs correctly
-- countdown works properly
-- fence calculation is correct
+**Intended Behavior**:  
+Safely handle user data, string operations, division, and JSON parsing without runtime crashes.
 
-**Issue Type:** Loop Logic / Off-by-one Errors
+**Issue Type**: Runtime Exceptions
 
 **Issues:**
-- ❌ `range(n + 1)` includes extra iteration  
-  ✔ should be `range(n)`
+- Unsafe access to `user.profile.age` without null/undefined checks
+- `toUpperCase()` called on potentially null/undefined string
+- Division by zero not handled in `a / b`
+- Missing error handling for JSON parsing (`JSON.parse`)
+- Missing proper function closure syntax causing runtime failures
 
-- ❌ `range(len(lst) - 2)` skips valid pairs  
-  ✔ should be `range(len(lst) - 1)`
+---
 
-- ❌ Infinite loop in countdown (missing decrement)
+## Bug 4 – bug4.py
 
-- ❌ Fence logic incorrect: `rails = posts`  
-  ✔ should be `rails = posts - 1`
+**Intended Behavior**:  
+Correctly execute loop-based logic including iteration, countdown, pair processing, and fence calculation.
 
-
-## Bug 5 – Type Errors & Mutable Default Issues
-
-**Intended Behavior:**
-- `greet_user`: correct string handling
-- `is_adult`: correct age validation
-- `store_location`: safe storage per call
-- `tag_items`: safe tagging without shared state
-
-**Issue Type:** Type Errors / State Bugs
+**Issue Type**: Off-by-one and Loop Logic Errors
 
 **Issues:**
-- ❌ `"you are " + age` → type mismatch  
-  ✔ convert age to string
+- `range(n + 1)` includes extra iteration
+- `range(len(lst) - 2)` skips valid elements
+- Countdown loop missing decrement causing infinite loop
+- Fence calculation incorrect: `rails = posts` instead of `posts - 1`
 
-- ❌ `if age > 18`  
-  ✔ should be `if age >= 18`
+---
 
-- ❌ `locations={}` as default argument → shared state bug  
-  ✔ should use `None`
+## Bug 5 – state_and_types.py
 
-- ❌ `tag=[]` as default argument → mutable default bug  
-  ✔ should use `None`
+**Intended Behavior**:  
+Handle user-related operations correctly with proper type usage and independent function state:
+- greeting user
+- checking adult status
+- storing locations
+- tagging items
 
-- ❌ incorrect usage of `tag.append(item)` without proper iteration logic
+**Issue Type**: Type Errors and Mutable Default Argument Issues
+
+**Issues:**
+- String + integer concatenation error (`"you are " + age`)
+- Incorrect boundary condition (`age > 18` instead of `age >= 18`)
+- Mutable default argument `{}` causing shared state across calls
+- Mutable default argument `[]` causing shared list reuse
+- Incorrect usage of `.append()` without proper iteration logic
