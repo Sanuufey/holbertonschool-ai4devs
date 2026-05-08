@@ -1,28 +1,24 @@
+# bug4.py — Off-by-One & Loop Errors
+
 def print_first_n(lst, n):
-    # Bug: range(n+1) goes out of bounds when n == len(lst)
-    for i in range(n + 1):
+    for i in range(n + 1):  # Bug: should be range(n)
         print(lst[i])
 
 def sum_pairs(lst):
     total = 0
-    # Bug: stops one short — last pair (lst[-2], lst[-1]) is never summed
-    for i in range(len(lst) - 2):
+    for i in range(len(lst) - 2):  # Bug: should be len(lst) - 1
         total += lst[i] + lst[i + 1]
     return total
 
 def count_down(n):
-    # Bug: n is never decremented — infinite loop
     while n > 0:
         print(n)
+        # Bug: n never decremented — infinite loop
 
 def build_fence(posts):
-    # Bug: should have (posts - 1) rails between posts, not posts rails
-    rails = posts
+    rails = posts  # Bug: should be posts - 1
     return f"{posts} posts, {rails} rails"
 
-items = [10, 20, 30, 40, 50]
-print_first_n(items, 5)       # IndexError: list index out of range
-
-print(sum_pairs([1, 2, 3, 4]))  # Expected: 10, Got: 6
-
-print(build_fence(5))           # Expected: "5 posts, 4 rails", Got: "5 posts, 5 rails"
+print_first_n([10, 20, 30, 40, 50], 5)  # IndexError
+print(sum_pairs([1, 2, 3, 4]))           # Expected: 10, Got: 6
+print(build_fence(5))                    # Expected: 5 posts, 4 rails

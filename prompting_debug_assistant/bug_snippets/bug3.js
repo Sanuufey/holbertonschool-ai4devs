@@ -1,27 +1,23 @@
+// bug3.js — Runtime Exceptions
+
 function getUserAge(user) {
-    // Bug: user might be undefined — crashes with TypeError
-    return user.profile.age;
+    return user.profile.age;  // Bug: crashes if user is undefined
 }
 
 function printUpperCase(str) {
-    // Bug: str could be null — TypeError: Cannot read properties of null
-    console.log(str.toUpperCase());
+    console.log(str.toUpperCase());  // Bug: crashes if str is null
 }
 
 function divide(a, b) {
-    // Bug: no zero-check — returns Infinity or NaN silently
-    return a / b;
+    return a / b;  // Bug: returns Infinity when b is 0
 }
 
 function parseConfig(jsonString) {
-    // Bug: no try/catch — throws SyntaxError on bad input
-    const config = JSON.parse(jsonString);
+    const config = JSON.parse(jsonString);  // Bug: no try/catch
     return config.timeout;
 }
 
-const users = [{ name: "Ali" }, undefined, { name: "Leyla", profile: { age: 25 } }];
-users.forEach(u => console.log(getUserAge(u)));
-
+getUserAge(undefined);
 printUpperCase(null);
 console.log(divide(10, 0));
-console.log(parseConfig("{ bad json }"));
+parseConfig("{ bad json }");

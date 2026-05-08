@@ -1,3 +1,5 @@
+# bug1.py — Syntax Errors
+
 def calculate_discount(price, member):
     if price > 100
         discount = 0.2
@@ -12,5 +14,4 @@ def calculate_discount(price, member):
 
     return final_price
 
-result = calculate_discount(150, True)
-print(result)
+print(calculate_discount(150, True))
