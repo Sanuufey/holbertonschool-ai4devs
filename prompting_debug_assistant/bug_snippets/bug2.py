@@ -1,5 +1,3 @@
-# bug2.py — Logical Errors
-
 def get_average(numbers):
     total = sum(numbers)
     return total / 100  # Bug: should be len(numbers)

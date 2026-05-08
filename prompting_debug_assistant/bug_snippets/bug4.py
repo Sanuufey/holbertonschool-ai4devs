@@ -1,5 +1,3 @@
-# bug4.py — Off-by-One & Loop Errors
-
 def print_first_n(lst, n):
     for i in range(n + 1):  # Bug: should be range(n)
         print(lst[i])

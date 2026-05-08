@@ -1,5 +1,3 @@
-# bug5.py — Data Type Errors
-
 def greet_user(name, age):
     return "Hello " + name + ", you are " + age + " years old."  # Bug: age is int
 

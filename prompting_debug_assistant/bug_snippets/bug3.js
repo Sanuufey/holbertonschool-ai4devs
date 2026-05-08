@@ -1,5 +1,3 @@
-// bug3.js — Runtime Exceptions
-
 function getUserAge(user) {
     return user.profile.age;  // Bug: crashes if user is undefined
 }
