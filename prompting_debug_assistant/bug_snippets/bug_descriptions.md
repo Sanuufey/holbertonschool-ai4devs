@@ -26,14 +26,9 @@
 
 ---
 
-## Bug 5 – bug5.py
-**Intended Behavior**: Greet a user with their name and age, check if a user is an adult, and store location labels.  
-**Issue Type**: Misuse of data types.  
-**Notes**: `greet_user` concatenates `int` directly to `str` without conversion, raising a `TypeError`; `is_adult` compares a raw `input()` string to an integer (`str > int` raises `TypeError` in Python 3); `store_location` and `tag_items` use mutable default arguments (`{}` and `[]`), causing state to persist and accumulate across separate function calls.
 
----
 
-## Bug 6 – bug6.js
+## Bug 5 – bug6.js
 **Intended Behavior**: Filter even numbers, fetch and handle API data, calculate date differences, validate phone numbers, and sort prices numerically.  
 **Issue Type**: Misuse of built-in methods and libraries.  
 **Notes**: `Array.map` is used instead of `Array.filter`, leaving `undefined` entries for odd numbers; `.catch` is placed before `.then`, so errors thrown in `.then` go uncaught; date subtraction yields milliseconds instead of days (missing division by `86400000`); `regex.test()` is called on a `number` instead of a `string`; `Array.sort()` is called without a comparator, causing lexicographic ordering (e.g., `[10, 100, 25, 3, 9]` instead of `[3, 9, 10, 25, 100]`).
